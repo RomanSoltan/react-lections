@@ -10,8 +10,19 @@ import Message from "./components/Message/Message";
 
 const App = () => {
   const author = "Roman";
+  const isOnline = false;
+  const isLoading = true;
+  const age = 18;
+
   return (
     <div>
+      {/* Умовні рендери 
+      Ні false, ні null, ні undefined не відмальовуються.
+      Це корисно у моментах, коли треба щось показати*/}
+      {isOnline && <h2>Online</h2>}
+      {isLoading && <h2>Loading...</h2>}
+      {age >= 18 ? <h2>Вітаю у клубі дорослих</h2> : <h2>Йди їж кашу!</h2>}
+
       {/* атрибути, які є у Message потрапляють 
       до props, як параметри. Назви атрибутів довільні. 
       Можна міняти контент компонента у моменті його 
