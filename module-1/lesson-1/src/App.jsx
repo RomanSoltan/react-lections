@@ -2,39 +2,26 @@
 // Все, що ми пишемо в App, перетворюється в розмітку
 // і вставляється в root.
 
+// Імпортуємо компоненти
+import Header from "./components/Header/Header";
+import WelcomeSection from "./components/WelcomeSection/WelcomeSection";
+import { Footer } from "./components/Footer/Footer";
+import Message from "./components/Message/Message";
+
 const App = () => {
+  const author = "Roman";
   return (
     <div>
-      <header>
-        <div>logo</div>
-        <nav>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
-        </nav>
-      </header>
-
-      <section>
-        <h2>Welcome to React!!!</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident et
-          quaerat, architecto voluptatem repudiandae, veritatis commodi odit,
-          praesentium veniam ducimus vitae eaque? Neque accusamus in, maiores
-          itaque excepturi assumenda ratione? Blanditiis, hic eum officia libero
-          repudiandae, facere velit odit obcaecati odio laudantium laborum non
-          quaerat, quas veritatis cupiditate debitis explicabo quidem sit
-          nesciunt fuga. Modi sit magnam reiciendis a eos!
-        </p>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-      </section>
-
-      <footer>
-        <span>&copy; All right reserved 2025</span>
-      </footer>
+      {/* атрибути, які є у Message потрапляють 
+      до props, як параметри. Назви атрибутів довільні. 
+      Можна міняти контент компонента у моменті його 
+      виклику (ініціалізаці)*/}
+      <Message author={author} text="Продам холодильник" />
+      <Message author="Petro" text="Продам шоколад" />
+      <Message author="Марина" text="Продам плейстейшн" />
+      <Header />
+      <WelcomeSection />
+      <Footer />
     </div>
   );
 };
