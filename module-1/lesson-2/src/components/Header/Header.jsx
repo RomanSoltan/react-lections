@@ -1,5 +1,3 @@
-// Компонент - це функція,яка повертає шмат розмітки
-
 const Header = () => {
   const mesage = "Hello world";
 
@@ -17,5 +15,4 @@ const Header = () => {
   );
 };
 
-// Header маємо експортувати в App
 export default Header;

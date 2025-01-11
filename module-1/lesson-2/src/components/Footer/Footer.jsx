@@ -1,5 +1,3 @@
-// Footer маємо експортувати в App
-// Іменований експорт
 export const Footer = () => {
   return (
     <footer>

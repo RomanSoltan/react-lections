@@ -15,5 +15,4 @@ const WelcomeSection = () => {
   );
 };
 
-// WelcomeSection маємо експортувати в App
 export default WelcomeSection;
