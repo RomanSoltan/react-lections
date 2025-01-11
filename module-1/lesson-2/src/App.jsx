@@ -51,7 +51,7 @@ const App = () => {
   return (
     <div>
       <List title="movies" data={filmsData} />
-      <List title="goods" data={goodsData} />
+      <List title="goods" data={goodsData} variant="bordered" />
 
       {isOnline && <h2>Online</h2>}
       {isLoading && <h2>Loading...</h2>}

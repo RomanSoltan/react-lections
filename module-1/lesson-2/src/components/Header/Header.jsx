@@ -11,9 +11,9 @@ const Header = () => {
       в якому записуються стилі. Назви класів в jsx пишуться в
       camalCase, задається атрибут className для тегу.
       Недолік ванільного CSS в тому, що всі класи є глобальними */}
-      <h2 className="listTitle">{message}</h2>
+      <h2 className="headerTitle">{message}</h2>
       <nav>
-        <ul className="list">
+        <ul className="headerList">
           <li>1</li>
           <li>2</li>
           <li>3</li>

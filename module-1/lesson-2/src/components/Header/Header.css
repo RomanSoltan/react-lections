@@ -1,9 +1,9 @@
-.listTitle {
+.headerTitle {
   color: blue;
   font-size: 28px;
   line-height: 1.1;
 }
-.list {
+.headerList {
   color: purple;
   font-size: 18px;
   line-height: 1.5;
