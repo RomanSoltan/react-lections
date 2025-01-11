@@ -4,6 +4,8 @@ import { Footer } from "./components/Footer/Footer";
 import Message from "./components/Message/Message";
 import List from "./components/List/List";
 
+import goodsData from "./db/goodsData.json";
+
 const App = () => {
   const author = "Roman";
   const isOnline = false;
@@ -27,24 +29,24 @@ const App = () => {
       title: "Silo",
     },
   ];
-  const goodsData = [
-    {
-      id: 1,
-      title: "Potato",
-    },
-    {
-      id: 2,
-      title: "Carrots",
-    },
-    {
-      id: 3,
-      title: "Iphone",
-    },
-    {
-      id: 4,
-      title: "TV",
-    },
-  ];
+  // const goodsData = [
+  //   {
+  //     id: 1,
+  //     title: "Potato",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Carrots",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Iphone",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "TV",
+  //   },
+  // ];
 
   return (
     <div>
