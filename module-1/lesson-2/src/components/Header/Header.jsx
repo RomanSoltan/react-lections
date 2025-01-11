@@ -9,7 +9,8 @@ const Header = () => {
       {/* Ванільний CSS
       У файлі з компонентом створити файл з розширенням .css,
       в якому записуються стилі. Назви класів в jsx пишуться в
-      camalCase, задається атрибут className для тегу */}
+      camalCase, задається атрибут className для тегу.
+      Недолік ванільного CSS в тому, що всі класи є глобальними */}
       <h2 className="listTitle">{message}</h2>
       <nav>
         <ul className="list">
