@@ -63,6 +63,8 @@ const App = () => {
       <Header />
       <WelcomeSection />
       <Footer />
+      <Footer variant="bordered" />
+      <Footer variant="contrast" />
     </div>
   );
 };

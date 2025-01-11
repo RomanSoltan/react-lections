@@ -1,0 +1,26 @@
+.footerWrapper {
+}
+.footerWrapper.bordered {
+  border: 1px solid brown;
+}
+.footerWrapper.success {
+  border: 1px solid greenyellow;
+}
+.footerWrapper.warning {
+  border: 1px solid red;
+}
+.footerWrapper.contrast {
+  border: 1px solid lime;
+}
+
+.footerTitle {
+  color: blue;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.listFooter {
+  color: purple;
+  font-size: 18px;
+  line-height: 1.5;
+}
