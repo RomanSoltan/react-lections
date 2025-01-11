@@ -1,6 +1,6 @@
 // імпортуємо бібліотеку clsx
 import clsx from "clsx";
-import "./Footer.css";
+import "./Footer.scss";
 
 // variant пропс в якому закладається назва класу
 export const Footer = ({ variant = false }) => {
