@@ -3,6 +3,7 @@ import WelcomeSection from "./components/WelcomeSection/WelcomeSection";
 import { Footer } from "./components/Footer/Footer";
 import Message from "./components/Message/Message";
 import List from "./components/List/List";
+import Container from "./components/Container/Container";
 
 import goodsData from "./db/goodsData.json";
 
@@ -50,8 +51,13 @@ const App = () => {
 
   return (
     <div>
-      <List title="movies" data={filmsData} />
-      <List title="goods" data={goodsData} variant="bordered" />
+      <Container title="Movies section">
+        <List title="movies" data={filmsData} />
+      </Container>
+
+      <Container title="Goods section">
+        <List title="goods" data={goodsData} variant="bordered" />
+      </Container>
 
       {isOnline && <h2>Online</h2>}
       {isLoading && <h2>Loading...</h2>}

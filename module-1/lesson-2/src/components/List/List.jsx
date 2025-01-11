@@ -3,7 +3,7 @@ import clsx from "clsx";
 import css from "./List.module.css";
 
 const List = ({ data, title, variant = "" }) => {
-  console.log("css:", css);
+  // console.log("css:", css);
 
   return (
     <div
