@@ -1,10 +1,10 @@
-// import { useState } from "react";
-import "./App.css";
+import Counter from "./components/Counter/Counter";
 
 function App() {
   return (
     <div>
-      <p>hello</p>
+      <h1>State</h1>
+      <Counter />
     </div>
   );
 }
