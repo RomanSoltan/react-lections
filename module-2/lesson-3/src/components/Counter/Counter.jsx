@@ -10,16 +10,25 @@ import s from "./Counter.module.css";
  */
 
 const Counter = () => {
-  const [counter, setCounter] = useState(100);
+  const [counter, setCounter] = useState(1);
 
-  const handleResetClick = () => {};
-
-  const handlePlusClick = () => {
-    console.log(counter);
-    setCounter(counter + 1);
+  const handleResetClick = () => {
+    setCounter(0);
   };
 
-  const handleMinusClick = () => {};
+  // краще використовувати prev завжди
+  // замість назви змінних
+  const handlePlusClick = () => {
+    // setCounter(counter + 1);
+    setCounter((prev) => prev + 3);
+  };
+
+  const handleMinusClick = () => {
+    if (counter < 1) {
+      return alert("STOP CLICKING BY MINUS");
+    }
+    setCounter((prev) => prev - 1);
+  };
 
   return (
     <div className={s.flexContainer}>
