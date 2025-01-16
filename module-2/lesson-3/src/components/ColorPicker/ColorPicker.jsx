@@ -20,7 +20,7 @@ const ColorPicker = () => {
         <ul className={s.list}>
           {colors.map((item) => (
             <li
-              // подія клік, яка змінює колір фону
+              // навісимо оборбник події клік, який змінює колір фону
               onClick={() => handleChangeColor(item.color)}
               className={s.item}
               key={item.id}

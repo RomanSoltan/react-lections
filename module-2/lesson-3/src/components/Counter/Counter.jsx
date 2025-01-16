@@ -20,7 +20,7 @@ const Counter = () => {
   // замість назви змінних
   const handlePlusClick = () => {
     // setCounter(counter + 1);
-    setCounter((prev) => prev + 3);
+    setCounter((prev) => prev + 1);
   };
 
   const handleMinusClick = () => {
