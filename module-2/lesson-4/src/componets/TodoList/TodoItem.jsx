@@ -5,7 +5,6 @@ const TodoItem = ({ id, todo, handleDelete }) => {
     <li className={s.item}>
       <input type="checkbox" />
       <span>{todo}</span>
-      {/* навісимо onClick на кнопку видалення */}
       <button onClick={() => handleDelete(id)} className="btn border">
         Delete
       </button>

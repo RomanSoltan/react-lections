@@ -1,4 +1,4 @@
-// import Counter from "./componets/Counter/Counter";
+import Counter from "./componets/Counter/Counter";
 import TodoList from "./componets/TodoList/TodoList";
 import "./App.css";
 import Modal from "./componets/Modal/Modal";
@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <h1>useEffect</h1>
-      {/* <Counter /> */}
+      <Counter />
       <TodoList />
       <button onClick={openModal}>Open Modal</button>
       {isOpen && <Modal closeModal={closeModal}>Продам килим!</Modal>}

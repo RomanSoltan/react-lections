@@ -21,10 +21,21 @@ const Modal = ({ children, title = "Default modal", closeModal }) => {
 
     document.addEventListener("keydown", handleKeyDown);
 
-    // Видалення слухача з документа після закриття модалки,
+    const timeoutId = setTimeout(() => {
+      console.log("0_0");
+    }, 3000);
+
+    // в момент відкриття модалки, у консолі буде показувати час
+    const intervalId = setInterval(() => {
+      console.log(new Date().toLocaleTimeString());
+    }, 1000);
+
+    // Видалення слухача і інтервала з документа після закриття модалки,
     // щоб уникнути витоку памяті
     return () => {
       console.log("Мене закрили");
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [closeModal]);

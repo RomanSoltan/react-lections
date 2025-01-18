@@ -69,9 +69,12 @@ const Counter = () => {
           <button className="btn" onClick={handleMinusClick}>
             minus
           </button>
-          <button className="btn" onClick={handleResetClick}>
-            reset
-          </button>
+          {/* Сховаємо кнопку reset якщо лічильник 0 */}
+          {counter !== 0 && (
+            <button className="btn" onClick={handleResetClick}>
+              reset
+            </button>
+          )}
           <button className="btn" onClick={handlePlusClick}>
             plus
           </button>
