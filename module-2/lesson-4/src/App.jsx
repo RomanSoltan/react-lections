@@ -3,6 +3,7 @@ import TodoList from "./componets/TodoList/TodoList";
 import "./App.css";
 import Modal from "./componets/Modal/Modal";
 import { useState } from "react";
+import ParentComponent from "./componets/PropsTrigger/ParentComponent";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ function App() {
       <TodoList />
       <button onClick={openModal}>Open Modal</button>
       {isOpen && <Modal closeModal={closeModal}>Продам килим!</Modal>}
+      <ParentComponent />
     </div>
   );
 }
