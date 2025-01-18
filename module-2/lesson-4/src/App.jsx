@@ -4,6 +4,7 @@ import "./App.css";
 import Modal from "./componets/Modal/Modal";
 import { useState } from "react";
 import ParentComponent from "./componets/PropsTrigger/ParentComponent";
+import Vote from "./componets/Vote/Vote";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ function App() {
   return (
     <div>
       <h1>useEffect</h1>
+      <Vote />
       <Counter />
       <TodoList />
       <button onClick={openModal}>Open Modal</button>
