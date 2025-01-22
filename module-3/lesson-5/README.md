@@ -1,8 +1,22 @@
-# React + Vite
+Заняття 5 - Форми в React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Форми
 
-Currently, two official plugins are available:
+- Форма реєстрації
+- Сабміт форми
+- Пропс сабміту
+- Об'єкт події не передається до пропсу сабміту
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Неконтрольована форма з 'e.target.elements'
+
+- Очищення форми після сабміту 'e.target.reset()'
+
+Контрольовані елементи
+
+- Атрибути value та onChange
+- Текстове поле
+- Елемент селект
+
+Контрольована форма
+
+- Очищення форми після сабміту
