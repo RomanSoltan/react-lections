@@ -1,4 +1,5 @@
-import UncontrolledForm from "../Forms/UncontrolledForm";
+import ControlledForm from "../Forms/ControlledForm";
+import UseIdExample from "../UseIdExample/UseIdExample";
 import s from "./App.module.css";
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
   };
   return (
     <div className={s.container}>
-      <UncontrolledForm register={register} />
+      <UseIdExample />
+      <ControlledForm register={register} />
     </div>
   );
 }
