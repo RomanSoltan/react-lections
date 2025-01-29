@@ -1,8 +1,17 @@
-# React + Vite
+# Заняття 7 - HTTP-запити
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- HTTP-запити з Axios
+  - https://hn.algolia.com/api (http://hn.algolia.com/api/v1/search)
+  - Запит при монтуванні компонента
+  - Оголошення функціі у еффекті
+  - Обробка даних запиту
+  - Відображення даних
+  - Поділ відповідальності
+  - Індикатор завантаження
+  - Обробка помилок
+  - Пошук через форму
+- Пагінація
+  - Параметри page та hitsPerPage
+  - Кнопка Load more
+  - Зберігання page та topic у стані
+- Бібліотека [React Hot Toast](https://react-hot-toast.com/)
