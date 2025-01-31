@@ -14,10 +14,10 @@ function App() {
       {/* <UseMemoExample /> */}
 
       {/* Step 2. Use ref */}
-      <UseRefRenderCountExample />
+      {/* <UseRefRenderCountExample /> */}
 
       {/* Step 3. Use ref file*/}
-      {/* <UseRefInputFile /> */}
+      <UseRefInputFile />
 
       {/* Step 4. Use forward ref */}
       {/* <UseRefForwardRefExample /> */}
