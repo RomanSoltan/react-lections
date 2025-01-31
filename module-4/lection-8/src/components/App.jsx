@@ -17,10 +17,10 @@ function App() {
       {/* <UseRefRenderCountExample /> */}
 
       {/* Step 3. Use ref file*/}
-      <UseRefInputFile />
+      {/* <UseRefInputFile /> */}
 
       {/* Step 4. Use forward ref */}
-      {/* <UseRefForwardRefExample /> */}
+      <UseRefForwardRefExample />
 
       {/* Step 5. Use context */}
       {/* <UseContextExample /> */}
