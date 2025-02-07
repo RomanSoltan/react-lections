@@ -161,7 +161,9 @@ img {
   min-height: 100vh;
 }
 a {
+  color: #fff;
   font-weight: bold;
+  text-decoration: none;
 }
 .nav {
   display: flex;
@@ -171,7 +173,8 @@ a {
   gap: 20px;
 }
 .active {
-  color: gold;
+  color: orangered;
+  text-decoration: underline;
 }
 .outlet {
   background-color: yellow;
