@@ -161,7 +161,7 @@ img {
   min-height: 100vh;
 }
 a {
-  color: #fff;
+  color: gray;
   font-weight: bold;
   text-decoration: none;
 }
