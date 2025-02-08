@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import UserList from "../components/UserList";
 import { fetchUsers } from "../services/api";
 import SearchBar from "../components/SearchBar/SearchBar";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const query = searchParams.get("query") ?? "";
+  const isOnline = searchParams.get("isOnline");
+  // повертає завжди рядок
+  console.log(typeof isOnline);
 
   useEffect(() => {
     const getData = async () => {
@@ -25,6 +28,7 @@ const Users = () => {
   const handleChangeQuery = (value) => {
     // збираємо значення
     searchParams.set("query", value);
+    searchParams.set("isOnline", true);
     // додаємо до url
     setSearchParams(searchParams);
   };

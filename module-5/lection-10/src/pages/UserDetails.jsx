@@ -3,7 +3,7 @@ import {
   Link,
   Outlet,
   useLocation,
-  useNavigate,
+  // useNavigate,
   useParams,
 } from "react-router-dom";
 import { fetchUserById } from "../services/api";
@@ -12,10 +12,9 @@ const UserDetails = () => {
   const { userId } = useParams();
   // дозволяє отримати функцію, яка буде приймати адресу,
   // куди треба перейти
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const location = useLocation();
-  console.log(location);
   // збереже значення між рендерами
   const goBackUrl = useRef(location?.state ?? "/users");
 
