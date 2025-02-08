@@ -1,11 +1,23 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { fetchUserById } from "../services/api";
 
 const UserDetails = () => {
   const { userId } = useParams();
-
+  // дозволяє отримати функцію, яка буде приймати адресу,
+  // куди треба перейти
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const location = useLocation();
+  console.log(location);
+  // збереже значення між рендерами
+  const goBackUrl = useRef(location?.state ?? "/users");
 
   useEffect(() => {
     const getData = async () => {
@@ -21,6 +33,7 @@ const UserDetails = () => {
 
   return (
     <div>
+      <Link to={goBackUrl.current}>Go Back</Link>
       UserDetails #{userId}
       <img src={user.image} />
       <h2>
