@@ -1,9 +1,11 @@
-import "./App.css";
+import Counter from "../Counter/Counter";
+import Header from "../Header/Header";
 
 function App() {
   return (
     <>
-      <p>Redux RTK</p>
+      <Header />
+      <Counter />
     </>
   );
 }
