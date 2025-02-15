@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Counter.module.css";
+// 10. Використати нові функції в компонентах вже імпортуючи їх з слайса
 import {
-  changeStep,
   decrement,
   increment,
   reset,
-} from "../../redux/counter/actions";
+  changeStep,
+} from "../../redux/counterSlice";
 
 const Counter = () => {
-  // фура їде на склад(state) і витягне із зони каунтера counter
+  // фура(useSelector) їде на склад(state або store)
+  // і витягне із зони каунтера counter
   const counter = useSelector((state) => state.counter.counter);
   const step = useSelector((state) => state.counter.step);
 

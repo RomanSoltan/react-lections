@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { counterReducer } from "./counter/counterReducer";
+import { counterReducer } from "./counterSlice";
 
 export const store = configureStore({
-  // пфдключаємо reducer
+  // пiдключаємо reducer
+  // 7. Підключити в сторі новий слайс замість старого редюсера
   reducer: {
     counter: counterReducer,
   },
