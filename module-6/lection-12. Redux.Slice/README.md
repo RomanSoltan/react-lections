@@ -1,27 +1,20 @@
-# Заняття 11 - Бібліотека Redux
+# Заняття 12 - Бібліотека Redux Toolkit
 
-## Управління станом
+## Слайси стану
 
-- Глобальний стан та потік даних
-- Встановлення бібліотек
-- [Redux Toolkit](https://redux-toolkit.js.org/)
-- [React Redux](https://react-redux.js.org/)
+- Створення файлів слайсів
 
-## Стор (store)
+## Функція `createSlice`
 
-- Функція `configureStore`
-- Розбір Redux Devtools
-- Підписка на стор хуком `useSelector`
+- Створення слайса
+- Властивості `name` та `initialState`
+- Властивість `reducers` та case-редюсери
+- Експорт фабрик екшенів
+- Експорт кореневого редюсера
+- Використання `Immer` для оновлення стану у case-редюсерах слайсів
 
-## Екшени (actions)
+## Бібліотека [Redux Persist](https://www.npmjs.com/package/redux-persist)
 
-- Фабрики екшенів
-- Функція `createAction`
-- Відправлення екшенів з `useDispatch`
-
-## Редюсери (reducers)
-
-- Сігнатура редюсера
-- Кореневий редюсер
-- Чому за замовчуванням `return state`
-- Обробка екшенів
+- Створення конфігурації
+- Створення `persistor`
+- Додавання `PersistGate`

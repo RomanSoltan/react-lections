@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { counterReducer } from "./counterSlice";
+
 // підключення persist
 import {
   persistStore,
@@ -12,6 +13,8 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { todoReducer } from "./todoSlice";
+import { filterReducer } from "./filterSlice";
 
 const persistConfig = {
   key: "counter-persist",
@@ -31,6 +34,8 @@ export const store = configureStore({
   // 7. Підключити в сторі новий слайс замість старого редюсера
   reducer: {
     counter: persistedReducer,
+    todos: todoReducer,
+    filter: filterReducer,
   },
   // для persist
   middleware: (getDefaultMiddleware) =>
