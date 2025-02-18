@@ -1,9 +1,11 @@
-import "./App.css";
+import Header from "../Header/Header";
+import TodoList from "../TodoList/TodoList";
 
 function App() {
   return (
     <>
-      <p>lection 13</p>
+      <Header />
+      <TodoList />
     </>
   );
 }
