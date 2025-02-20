@@ -23,14 +23,50 @@ export const fetchData = createAsyncThunk(
       // основна ідея отримати дані і викинути їх назовні
       return data;
     } catch (error) {
-      console.log(error);
       // механізм для викидання помилок
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-// 59:23
+// видалення данних із сервера
+export const deleteTodo = createAsyncThunk(
+  "todos/deleteTodo",
+  async (id, thunkAPI) => {
+    try {
+      await axios.delete(`/tasks/${id}`);
+      return id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// додавання данних на сервер
+export const addTodo = createAsyncThunk(
+  "todos/addTodo",
+  async (body, thunkAPI) => {
+    try {
+      const { data } = await axios.post("/tasks", body);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// редагування данних на сервері
+export const editTodo = createAsyncThunk(
+  "todos/editTodo",
+  async (body, thunkAPI) => {
+    try {
+      const { data } = await axios.put(`/tasks/${body.id}`, body);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 // // функція буде повертати іншу функцію
 // export const fetchData = () => async (dispatch) => {
