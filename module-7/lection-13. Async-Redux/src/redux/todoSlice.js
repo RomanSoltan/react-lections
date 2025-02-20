@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchData } from "./todosOps";
 
 const initialState = {
-  items: [{ id: 1, todo: "Learn redux", isCompleted: false }],
+  items: [],
+  isLoading: false,
+  isError: false,
 };
 
 const slice = createSlice({
@@ -22,9 +25,49 @@ const slice = createSlice({
       const item = state.items.find((item) => item.id === action.payload.id);
       item.todo = action.payload.todo;
     },
+    fetchDataSuccess: (state, action) => {
+      state.items = action.payload;
+      // коли дані завантажились, лоадер має бути false
+      state.isLoading = false;
+    },
+    setIsError: (state, action) => {
+      // state.isLoading = false;
+      state.isError = action.payload;
+    },
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
+  },
+  // опрацювання даних після запиту на сервер
+  // extraReducers - це всі екшени, які виконуються за межами
+  // описаних редюсерів
+  extraReducers: (builder) => {
+    // перехоплює дані, після виклику функції в компоненті TodoList
+    builder
+      .addCase(fetchData.pending, (state) => {
+        state.isLoading = true;
+      })
+      // коли спрацьовує fulfilled-статус перехоплюємо цю операцію.
+      // те що повертається із санки потрааляє як екшн у payload
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.isLoading = false;
+        // зберігаємо дані локально в стані
+        state.items = action.payload;
+      })
+      .addCase(fetchData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = action.payload;
+      });
   },
 });
 
 export const todoReducer = slice.reducer;
 
-export const { deleteTodo, addTodo, editTodo } = slice.actions;
+export const {
+  deleteTodo,
+  addTodo,
+  editTodo,
+  fetchDataSuccess,
+  setIsError,
+  setIsLoading,
+} = slice.actions;
