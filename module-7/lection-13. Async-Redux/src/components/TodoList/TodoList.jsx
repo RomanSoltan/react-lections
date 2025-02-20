@@ -10,8 +10,12 @@ const TodoList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const abortController = new AbortController();
     // виклик функції з операцій
-    dispatch(fetchData());
+    dispatch(fetchData({ signal: abortController.signal }));
+    return () => {
+      abortController.abort();
+    };
   }, [dispatch]);
 
   return (

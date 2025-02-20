@@ -14,10 +14,10 @@ export const fetchData = createAsyncThunk(
   // має бути завжди два аргумента у функції
   // 1. аргумент передає компонент
   // 2. аргумент передає createAsyncThunk
-  async (body, thunkAPI) => {
+  async ({ signal }, thunkAPI) => {
     try {
       // запит на сервер
-      const { data } = await axios.get("/tasks");
+      const { data } = await axios.get("/tasks", { signal });
       // якщо ми робимо будь-який return з санки, то це буде
       // завжди fulfilled
       // основна ідея отримати дані і викинути їх назовні
