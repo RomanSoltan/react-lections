@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { deleteTodo, editTodo } from "../../redux/todosOps";
 
-const Item = ({ completed, todo, id, isFavorite }) => {
+const Item = ({ completed, todo, edit, id, isFavorite }) => {
   const dispatch = useDispatch();
   const [editMode, setEditMode] = useState(false);
   const [value, setValue] = useState(todo);
@@ -34,7 +34,7 @@ const Item = ({ completed, todo, id, isFavorite }) => {
         <button>{isFavorite ? "Dislike" : "Like"}</button>
         <button
           onClick={
-            () => setEditMode(true)
+            edit
             // dispatch(
             //   editTodo({ id, todo: prompt("Enter new value: ") || todo })
             // )
