@@ -35,6 +35,7 @@ const List = () => {
       {isOpen && (
         <Modal>
           <TodoForm
+            text="Edit right now!!"
             initialValues={item}
             handleSubmit={(values) => {
               dispatch(editTodo({ ...item, ...values }));
