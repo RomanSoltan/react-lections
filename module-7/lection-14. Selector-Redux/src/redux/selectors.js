@@ -1,4 +1,4 @@
-// counter
+import { createSelector } from "@reduxjs/toolkit";
 
 // todos
 export const selectTodos = (state) => state.todos.items;
@@ -9,30 +9,58 @@ export const selectFilter = (state) => state.filter.filter;
 // пошук по статусу all, active, completed
 export const selectStatus = (state) => state.filter.status;
 
-// visibleTasks
-export const selectVisibilityTasksByStatus = (state) => {
-  console.log("filter status logic");
+// visibleTasks неоптимізований
 
-  const todos = selectTodos(state);
-  const taskStatus = selectStatus(state);
+// export const selectVisibilityTasksByStatus = (state) => {
+//   console.log("filter status logic");
 
-  switch (taskStatus) {
-    case "all":
-      return todos;
-    case "active":
-      return todos.filter((item) => !item.completed);
-    case "completed":
-      return todos.filter((item) => item.completed);
+//   const todos = selectTodos(state);
+//   const taskStatus = selectStatus(state);
 
-    default:
-      return [];
+//   switch (taskStatus) {
+//     case "all":
+//       return todos;
+//     case "active":
+//       return todos.filter((item) => !item.completed);
+//     case "completed":
+//       return todos.filter((item) => item.completed);
+//     default:
+//       return [];
+//   }
+// };
+
+// visibleTasks оптимізований
+export const selectVisibilityTasksByStatus = createSelector(
+  [selectStatus, selectTodos],
+  (taskStatus, todos) => {
+    console.log("filter status logic memo");
+
+    switch (taskStatus) {
+      case "all":
+        return todos;
+      case "active":
+        return todos.filter((item) => !item.completed);
+      case "completed":
+        return todos.filter((item) => item.completed);
+      default:
+        return [];
+    }
   }
-};
+);
 
-export const selectUncompletedTodos = (state) => {
-  console.log("uncompleted logic");
+// UncompletedTodos неоптимізований
 
-  const todos = selectTodos(state);
+// export const selectUncompletedTodos = (state) => {
+//   console.log("uncompleted logic");
+
+//   const todos = selectTodos(state);
+
+//   return todos.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
+// };
+
+// UncompletedTodos оптимізований
+export const selectUncompletedTodos = createSelector([selectTodos], (todos) => {
+  console.log("uncompleted logic memo");
 
   return todos.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
-};
+});
