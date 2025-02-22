@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   filter: "",
+  status: "all",
 };
 
 const slice = createSlice({
@@ -9,11 +10,14 @@ const slice = createSlice({
   initialState,
   reducers: {
     setFilter: (state, action) => {
-      // всещо буде писатися в інпуті буде зберігатися в редаксі
+      // все що буде писатися в інпуті буде зберігатися в редаксі
       state.filter = action.payload;
+    },
+    changeVisibilityStatus: (state, action) => {
+      state.status = action.payload;
     },
   },
 });
 
 export const filterReducer = slice.reducer;
-export const { setFilter } = slice.actions;
+export const { setFilter, changeVisibilityStatus } = slice.actions;

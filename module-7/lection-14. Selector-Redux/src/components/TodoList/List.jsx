@@ -5,15 +5,10 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 import TodoForm from "./TodoForm";
 import { editTodo } from "../../redux/todosOps";
+import { selectVisibilityTasksByStatus } from "../../redux/selectors";
 
 const List = () => {
-  //                         склад - назва слайса - items з inistate
-  const todos = useSelector((state) => state.todos.items);
-  const filter = useSelector((state) => state.filter.filter);
-
-  const filteredData = todos.filter((item) =>
-    item.todo.toLowerCase().includes(filter.toLowerCase())
-  );
+  const todos = useSelector(selectVisibilityTasksByStatus);
 
   const [isOpen, setIsOpen] = useState(false);
   const [item, setItem] = useState();
@@ -21,7 +16,7 @@ const List = () => {
 
   return (
     <ul className={s.list}>
-      {filteredData.map((item) => (
+      {todos.map((item) => (
         <Item
           {...item}
           key={item.id}
@@ -34,7 +29,7 @@ const List = () => {
       {isOpen && (
         <Modal>
           <TodoForm
-            text="Edit right now!!"
+            text="Edit now!!"
             initialValues={item}
             handleSubmit={(values) => {
               dispatch(editTodo({ ...item, ...values }));

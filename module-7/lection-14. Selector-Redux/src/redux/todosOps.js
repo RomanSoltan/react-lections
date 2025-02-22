@@ -67,19 +67,3 @@ export const editTodo = createAsyncThunk(
     }
   }
 );
-
-// // функція буде повертати іншу функцію
-// export const fetchData = () => async (dispatch) => {
-//   try {
-//     dispatch(setIsError(false));
-//     dispatch(setIsLoading(true));
-//     const response = await axios.get(
-//       "https://67b4fb67a9acbdb38ed105dc.mockapi.io/tasks"
-//     );
-//     dispatch(fetchDataSuccess(response.data));
-//   } catch {
-//     dispatch(setIsError(true));
-//   } finally {
-//     dispatch(setIsLoading(false));
-//   }
-// };

@@ -57,8 +57,12 @@ const slice = createSlice({
       })
       .addCase(editTodo.fulfilled, (state, action) => {
         state.isLoading = false;
-        const item = state.items.find((item) => item.id === action.payload.id);
-        item.todo = action.payload.todo;
+        const itemIndex = state.items.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        if (itemIndex !== -1) {
+          state.items[itemIndex] = action.payload;
+        }
       })
       .addCase(editTodo.rejected, (state, action) => {
         state.isLoading = false;
