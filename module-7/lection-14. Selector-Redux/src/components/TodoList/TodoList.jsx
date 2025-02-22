@@ -3,15 +3,18 @@ import { useEffect, useState } from "react";
 import List from "./List";
 import SearchBar from "./SearchBar";
 import s from "./TodoList.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTodo, fetchData } from "../../redux/todosOps";
 import Modal from "../Modal/Modal";
 import TodoForm from "./TodoForm";
 import Filter from "./Filter";
+import { selectUncompletedTodos } from "../../redux/selectors";
 
 const TodoList = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  const uncompletedTodos = useSelector(selectUncompletedTodos);
+
   const handleSubmit = (values, options) => {
     dispatch(addTodo(values));
     setIsOpen(false);
@@ -33,6 +36,7 @@ const TodoList = () => {
       <button onClick={() => setIsOpen(true)}>Add</button>
       <SearchBar />
       <Filter />
+      <h2>Uncompleted Todos: {uncompletedTodos}</h2>
       <List />
       {isOpen && (
         <Modal>

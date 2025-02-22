@@ -11,6 +11,8 @@ export const selectStatus = (state) => state.filter.status;
 
 // visibleTasks
 export const selectVisibilityTasksByStatus = (state) => {
+  console.log("filter status logic");
+
   const todos = selectTodos(state);
   const taskStatus = selectStatus(state);
 
@@ -25,4 +27,12 @@ export const selectVisibilityTasksByStatus = (state) => {
     default:
       return [];
   }
+};
+
+export const selectUncompletedTodos = (state) => {
+  console.log("uncompleted logic");
+
+  const todos = selectTodos(state);
+
+  return todos.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
 };

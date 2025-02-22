@@ -7,8 +7,7 @@ import { deleteTodo, editTodo } from "../../redux/todosOps";
 const Item = ({ completed, todo, edit, id, isFavorite }) => {
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
-    console.log(e);
+  const handleChange = () => {
     dispatch(editTodo({ completed: !completed, todo, id }));
   };
 
