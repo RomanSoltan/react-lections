@@ -6,7 +6,7 @@ import s from "./TodoList.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, fetchData } from "../../redux/todosOps";
 import Modal from "../Modal/Modal";
-import TodoForm from "./TodoForm";
+import TodoForm from "../TodoForm";
 import Filter from "./Filter";
 import { selectUncompletedTodos } from "../../redux/selectors";
 

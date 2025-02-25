@@ -3,7 +3,7 @@ import Item from "./Item";
 import s from "./TodoList.module.css";
 import { useState } from "react";
 import Modal from "../Modal/Modal";
-import TodoForm from "./TodoForm";
+import TodoForm from "../TodoForm";
 import { editTodo } from "../../redux/todosOps";
 import { selectVisibilityTasksByStatus } from "../../redux/selectors";
 

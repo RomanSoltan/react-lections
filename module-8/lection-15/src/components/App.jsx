@@ -1,5 +1,5 @@
-import Header from "../Header/Header";
-import TodoList from "../TodoList/TodoList";
+import Header from "./Header/Header";
+import TodoList from "./TodoList/TodoList";
 
 function App() {
   return (
