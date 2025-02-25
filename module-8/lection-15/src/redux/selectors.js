@@ -60,7 +60,7 @@ export const selectVisibilityTasksByStatus = createSelector(
 
 // UncompletedTodos оптимізований
 export const selectUncompletedTodos = createSelector([selectTodos], (todos) => {
-  console.log("uncompleted logic memo");
+  // console.log("uncompleted logic memo");
 
   return todos.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
 });
