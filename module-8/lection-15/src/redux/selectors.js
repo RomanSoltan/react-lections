@@ -9,26 +9,6 @@ export const selectFilter = (state) => state.filter.filter;
 // пошук по статусу all, active, completed
 export const selectStatus = (state) => state.filter.status;
 
-// visibleTasks неоптимізований
-
-// export const selectVisibilityTasksByStatus = (state) => {
-//   console.log("filter status logic");
-
-//   const todos = selectTodos(state);
-//   const taskStatus = selectStatus(state);
-
-//   switch (taskStatus) {
-//     case "all":
-//       return todos;
-//     case "active":
-//       return todos.filter((item) => !item.completed);
-//     case "completed":
-//       return todos.filter((item) => item.completed);
-//     default:
-//       return [];
-//   }
-// };
-
 // visibleTasks оптимізований
 export const selectVisibilityTasksByStatus = createSelector(
   [selectStatus, selectTodos],
@@ -48,19 +28,16 @@ export const selectVisibilityTasksByStatus = createSelector(
   }
 );
 
-// UncompletedTodos неоптимізований
-
-// export const selectUncompletedTodos = (state) => {
-//   console.log("uncompleted logic");
-
-//   const todos = selectTodos(state);
-
-//   return todos.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
-// };
-
 // UncompletedTodos оптимізований
 export const selectUncompletedTodos = createSelector([selectTodos], (todos) => {
-  // console.log("uncompleted logic memo");
+  console.log("uncompleted logic memo");
 
   return todos.reduce((total, curr) => (curr.completed ? total : total + 1), 0);
 });
+
+// auth
+
+// 4. create auth selectors
+// 5. next => create authOperations.js
+export const selectUser = (state) => state.auth.user;
+export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;

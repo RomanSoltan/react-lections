@@ -1,9 +1,7 @@
 // https://67b4fb67a9acbdb38ed105dc.mockapi.io/tasks
 
-import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
-axios.defaults.baseURL = "https://67b4fb67a9acbdb38ed105dc.mockapi.io";
+import { api } from "./authOperations";
 
 // Операція для того, щоб повернути дані або їх відсутність
 
@@ -17,7 +15,7 @@ export const fetchData = createAsyncThunk(
   async ({ signal }, thunkAPI) => {
     try {
       // запит на сервер
-      const { data } = await axios.get("/tasks", { signal });
+      const { data } = await api.get("/tasks", { signal });
       // якщо ми робимо будь-який return з санки, то це буде
       // завжди fulfilled
       // основна ідея отримати дані і викинути їх назовні
@@ -34,7 +32,7 @@ export const deleteTodo = createAsyncThunk(
   "todos/deleteTodo",
   async (id, thunkAPI) => {
     try {
-      await axios.delete(`/tasks/${id}`);
+      await api.delete(`/tasks/${id}`);
       return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -47,7 +45,7 @@ export const addTodo = createAsyncThunk(
   "todos/addTodo",
   async (body, thunkAPI) => {
     try {
-      const { data } = await axios.post("/tasks", body);
+      const { data } = await api.post("/tasks", body);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -60,7 +58,7 @@ export const editTodo = createAsyncThunk(
   "todos/editTodo",
   async (body, thunkAPI) => {
     try {
-      const { data } = await axios.put(`/tasks/${body.id}`, body);
+      const { data } = await api.put(`/tasks/${body.id}`, body);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
