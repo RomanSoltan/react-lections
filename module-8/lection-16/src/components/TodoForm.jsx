@@ -9,7 +9,7 @@ const TodoForm = ({ initialValues, handleSubmit, text = "add" }) => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <Field name="todo" placeholder="" />
+          <Field name="text" placeholder="" />
           <button type="submit">{text}</button>
         </Form>
       </Formik>

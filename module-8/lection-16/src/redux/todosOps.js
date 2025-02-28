@@ -7,21 +7,14 @@ import { api } from "./authOperations";
 
 //               створення операції (функція-екшн)
 export const fetchData = createAsyncThunk(
-  // type for action
   "todos/fetchData",
-  // має бути завжди два аргумента у функції
-  // 1. аргумент передає компонент
-  // 2. аргумент передає createAsyncThunk
   async ({ signal }, thunkAPI) => {
     try {
       // запит на сервер
       const { data } = await api.get("/tasks", { signal });
-      // якщо ми робимо будь-який return з санки, то це буде
-      // завжди fulfilled
-      // основна ідея отримати дані і викинути їх назовні
+
       return data;
     } catch (error) {
-      // механізм для викидання помилок
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -58,7 +51,7 @@ export const editTodo = createAsyncThunk(
   "todos/editTodo",
   async (body, thunkAPI) => {
     try {
-      const { data } = await api.put(`/tasks/${body.id}`, body);
+      const { data } = await api.patch(`/tasks/${body.id}`, body);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

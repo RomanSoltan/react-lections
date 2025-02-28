@@ -40,7 +40,7 @@ const TodoList = () => {
       <List />
       {isOpen && (
         <Modal>
-          <TodoForm handleSubmit={handleSubmit} initialValues={{ todo: "" }} />
+          <TodoForm handleSubmit={handleSubmit} initialValues={{ text: "" }} />
         </Modal>
       )}
     </div>

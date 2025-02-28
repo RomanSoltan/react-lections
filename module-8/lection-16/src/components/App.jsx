@@ -5,8 +5,17 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Todos from "../pages/Todos/Todos";
 import Layout from "./Layout";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { refreshUser } from "../redux/authOperations";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

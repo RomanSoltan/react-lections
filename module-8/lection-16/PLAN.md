@@ -1,4 +1,4 @@
-# Як перехати на `createAsyncThunk`
+# Як переїхати на `createAsyncThunk`
 
 1. Створити файл під назвою `todoOps.js`
 2. Записати в нього налаштування axios

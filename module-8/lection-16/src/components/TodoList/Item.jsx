@@ -4,18 +4,18 @@ import { useDispatch } from "react-redux";
 
 import { deleteTodo, editTodo } from "../../redux/todosOps";
 
-const Item = ({ completed, todo, edit, id, isFavorite }) => {
+const Item = ({ completed, text, edit, id, isFavorite }) => {
   const dispatch = useDispatch();
 
   const handleChange = () => {
-    dispatch(editTodo({ completed: !completed, todo, id }));
+    dispatch(editTodo({ completed: !completed, text, id }));
   };
 
   return (
     <li className={s.item}>
       <input type="checkbox" checked={completed} onChange={handleChange} />
       <p>
-        {isFavorite && <FaStar color="gold" />} {todo}{" "}
+        {isFavorite && <FaStar color="gold" />} {text}{" "}
       </p>
       <div>
         <button>{isFavorite ? "Dislike" : "Like"}</button>
