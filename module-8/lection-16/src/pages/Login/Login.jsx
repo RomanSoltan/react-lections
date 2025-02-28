@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../redux/authOperations";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Login = () => {
@@ -44,6 +44,10 @@ const Login = () => {
           </label>
 
           <button type="submit">Login</button>
+
+          <p style={{ color: "black" }}>
+            You dont have account yet? <Link to="/register">Get it</Link>
+          </p>
         </Form>
       </Formik>
     </div>

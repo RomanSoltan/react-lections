@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { registerThunk } from "../../redux/authOperations";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   // 9.
@@ -36,6 +37,10 @@ const Register = () => {
           </label>
 
           <button type="submit">Register</button>
+
+          <p style={{ color: "black" }}>
+            You already have account? <Link to="/login">Get it</Link>
+          </p>
         </Form>
       </Formik>
     </div>
