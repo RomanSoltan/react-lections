@@ -13,6 +13,7 @@ const initialState = {
   },
   token: "",
   isLoggedIn: false,
+  isRefreshing: false,
 };
 
 // 2. create slice
@@ -39,6 +40,13 @@ const slice = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.isRefreshing = false;
       })
       // 16. if logout, then return initialState
       .addCase(logoutThunk.fulfilled, () => initialState);

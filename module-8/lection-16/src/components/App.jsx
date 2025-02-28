@@ -5,18 +5,20 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Todos from "../pages/Todos/Todos";
 import Layout from "./Layout";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { refreshUser } from "../redux/authOperations";
+import { selectIsRefreshing } from "../redux/selectors";
 
 function App() {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? null : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
